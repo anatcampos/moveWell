@@ -1,6 +1,7 @@
 package mindera.porto.moveWell.mapper;
 
 import mindera.porto.moveWell.dto.UserCreateDto;
+import mindera.porto.moveWell.dto.UserDeleteDto;
 import mindera.porto.moveWell.dto.UserReadDto;
 import mindera.porto.moveWell.entity.User;
 
@@ -16,7 +17,7 @@ public class UserMapper {
         return userReadDto;
     }
 
-    public static User fromUserCreateToUser(UserCreateDto userCreateDto) {
+    public static User fromUserCreateDtoToUser(UserCreateDto userCreateDto) {
 
         User user = new User();
         user.setName(userCreateDto.getName());
@@ -24,4 +25,15 @@ public class UserMapper {
         user.setAge(userCreateDto.getAge());
         return user;
     }
+
+    public static User fromUserDeleteDtoToUser(UserDeleteDto userDeleteDto) {
+
+        User user = new User();
+        user.setId(userDeleteDto.getId());
+        user.setUsername(userDeleteDto.getUsername());
+        user.setPassword(userDeleteDto.getPassword());
+        return user;
+    }
+
+
 }

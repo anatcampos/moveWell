@@ -1,8 +1,8 @@
 package mindera.porto.moveWell.controller;
 
 import mindera.porto.moveWell.dto.UserCreateDto;
+import mindera.porto.moveWell.dto.UserDeleteDto;
 import mindera.porto.moveWell.dto.UserReadDto;
-import mindera.porto.moveWell.entity.Video;
 import mindera.porto.moveWell.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -39,12 +39,18 @@ public class UserController {
 
     @GetMapping("{userId}/video-views")
     public UserVideosDto getVideoViews(@PathVariable("userId") Long userId){
-
+        return null; ///TODO
     }
 
     @GetMapping("{userId}/video-views-other-way")
     public  List<VideosWithViewDto> getVideoViewsOtherWay(@PathVariable("userId") Long userId){
+        return null; //TODO
+    }
 
+    @DeleteMapping(path = "{userId}")
+    public void deleteOwnUser(@PathVariable("userId") Long userId, @RequestBody UserDeleteDto userDeleteDto){
+
+        userService.deleteOwnUser(userId, userDeleteDto);
     }
 
     //User ver a sua subscrição
