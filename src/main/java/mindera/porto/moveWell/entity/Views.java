@@ -1,9 +1,6 @@
 package mindera.porto.moveWell.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -13,6 +10,10 @@ import java.util.List;
 @Table(name="views")
 public class Views {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private LocalDateTime dateOfView;
 
     @ManyToOne
@@ -20,6 +21,9 @@ public class Views {
 
     @ManyToOne
     private Video videoViewed;
+
+    public Views() {
+    }
 
     public LocalDateTime getDateOfView() {
         return dateOfView;
