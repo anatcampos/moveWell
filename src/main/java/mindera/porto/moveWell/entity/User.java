@@ -93,4 +93,11 @@ public class User {
         this.age = age;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
 }
