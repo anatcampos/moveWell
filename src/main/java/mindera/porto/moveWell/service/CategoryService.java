@@ -43,12 +43,29 @@ public class CategoryService {
     }
 
     public CategoryReadDto addNewCategory(CategoryCreateDto categoryCreateDto) {
-        try {
-            Category category = CategoryMapper.fromCategoryCreateDtoToCategory(categoryCreateDto);
-            Category categorySaved = categoryRepository.save(category);
-            return CategoryMapper.fromCategoryToCategoryReadDto(categorySaved);
-        } catch (Exception e) {
-            throw new IllegalStateException("Category is duplicated");
+        Optional<User> userOptional = userRepository.findUserByUsernameAndPassword(
+                categoryCreateDto.getUsername(),
+                categoryCreateDto.getPassword());
+
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+
+            if (user.getRole().getRoleType() == RoleType.PHYSIOTHERAPIST) {
+
+                try {
+                    Category category = CategoryMapper.fromCategoryCreateDtoToCategory(categoryCreateDto);
+                    Category categorySaved = categoryRepository.save(category);
+                    return CategoryMapper.fromCategoryToCategoryReadDto(categorySaved);
+                } catch (Exception e){
+                    throw new IllegalStateException("Category is duplicated");
+                }
+
+            } else {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Only physiotherapists can add categories.");
+            }
+
+        } else {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid credentials. Please check your username and password.");
         }
     }
 
