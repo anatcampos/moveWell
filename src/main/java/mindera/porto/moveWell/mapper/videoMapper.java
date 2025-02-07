@@ -1,7 +1,7 @@
 package mindera.porto.moveWell.mapper;
 
 import mindera.porto.moveWell.dto.videoCreateDto;
-import mindera.porto.moveWell.dto.videoReadDto;
+import mindera.porto.moveWell.dto.VideoReadDto;
 import mindera.porto.moveWell.entity.Video;
 
 public class videoMapper {
@@ -9,8 +9,8 @@ public class videoMapper {
     public videoMapper() {
     }
 
-    public static videoReadDto fromVideoToVideoReadDto (Video video) {
-        videoReadDto videoReadDto = new videoReadDto();
+    public static VideoReadDto fromVideoToVideoReadDto (Video video) {
+        VideoReadDto videoReadDto = new VideoReadDto();
         videoReadDto.setId(video.getId());
         videoReadDto.setUrl(video.getUrl());
         videoReadDto.setNumberOfRatings(video.getNumberOfRatings());

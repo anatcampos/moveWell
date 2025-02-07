@@ -1,8 +1,6 @@
 package mindera.porto.moveWell.dto;
 
-import jakarta.persistence.Column;
-
-public class videoReadDto {
+public class VideoReadDto {
 
     private Long id;
 
@@ -14,7 +12,7 @@ public class videoReadDto {
 
     private Integer numberOfRatings;
 
-    public videoReadDto(Long id, String url, Integer numberOfViews, Double averageRating, Integer numberOfRatings) {
+    public VideoReadDto(Long id, String url, Integer numberOfViews, Double averageRating, Integer numberOfRatings) {
         this.id = id;
         this.url = url;
         this.numberOfViews = numberOfViews;
@@ -22,7 +20,7 @@ public class videoReadDto {
         this.numberOfRatings = numberOfRatings;
     }
 
-    public videoReadDto() {
+    public VideoReadDto() {
     }
 
     public Long getId() {
