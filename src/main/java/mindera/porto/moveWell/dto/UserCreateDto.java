@@ -4,6 +4,7 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import mindera.porto.moveWell.entity.Role;
 
 public class UserCreateDto {
 
@@ -16,6 +17,8 @@ public class UserCreateDto {
     @Min(value = 0, message = "Invalid age.")
     @Max(value = 120, message = "Invalid age.")
     private Integer age;
+
+    private Role role;
 
     public String getName() {
         return name;
@@ -39,5 +42,13 @@ public class UserCreateDto {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

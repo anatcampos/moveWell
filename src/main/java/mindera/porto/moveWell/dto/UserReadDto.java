@@ -5,8 +5,11 @@ import jakarta.persistence.Column;
 public class UserReadDto {
 
     private Long id;
+
     private String name;
+
     private String username;
+    
     private Integer age;
 
     public Long getId() {

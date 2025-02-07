@@ -61,7 +61,7 @@ public class CategoryService {
                 }
 
             } else {
-            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Only physiotherapists can add categories.");
+                throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Only physiotherapists can add categories.");
             }
 
         } else {

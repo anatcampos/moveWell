@@ -1,8 +1,11 @@
 package mindera.porto.moveWell.service;
 
+import ch.qos.logback.core.net.server.Client;
 import mindera.porto.moveWell.dto.UserCreateDto;
 import mindera.porto.moveWell.dto.UserDeleteDto;
 import mindera.porto.moveWell.dto.UserReadDto;
+import mindera.porto.moveWell.entity.Role;
+import mindera.porto.moveWell.entity.RoleType;
 import mindera.porto.moveWell.entity.User;
 import mindera.porto.moveWell.mapper.UserMapper;
 import mindera.porto.moveWell.repository.UserRepository;
@@ -31,8 +34,16 @@ public class UserService {
     public UserReadDto addNewUser(UserCreateDto userCreateDto) {
         try {
             User user = UserMapper.fromUserCreateDtoToUser(userCreateDto);
-            User userSaved = userRepository.save(user);
-            return UserMapper.fromUserToUserReadDto(userSaved);
+
+            if (user.getRole() != null) {
+                //Em vez da linha abaixo criar RoleRepository e criar método no RoleService para ir buscar o id do role
+                user.setRole(new Role(2L, RoleType.CLIENT));
+                User userSaved = userRepository.save(user);
+                return UserMapper.fromUserToUserReadDto(userSaved);
+            } else {
+                User userSaved = userRepository.save(user);
+                return UserMapper.fromUserToUserReadDto(userSaved);
+            }
         } catch (Exception e) {
             throw new IllegalStateException("User is duplicated.");
         }

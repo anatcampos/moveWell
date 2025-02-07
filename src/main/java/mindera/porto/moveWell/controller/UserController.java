@@ -33,8 +33,8 @@ public class UserController {
     }
 
     @PostMapping
-    public UserReadDto addNewUser(@RequestBody UserCreateDto user){
-        return userService.addNewUser(user);
+    public UserReadDto addNewUser(@RequestBody UserCreateDto userCreateDto){
+        return userService.addNewUser(userCreateDto);
     }
 
     @GetMapping("{userId}/video-views")
@@ -42,10 +42,10 @@ public class UserController {
         return null; ///TODO
     }
 
-    @GetMapping("{userId}/video-views-other-way")
-    public  List<VideosWithViewDto> getVideoViewsOtherWay(@PathVariable("userId") Long userId){
-        return null; //TODO
-    }
+//    @GetMapping("{userId}/video-views-other-way")
+//    public  List<VideosWithViewsDto> getVideoViewsOtherWay(@PathVariable("userId") Long userId){
+//        return null; //TODO
+//    }
 
     @DeleteMapping(path = "{userId}")
     public void deleteOwnUser(@PathVariable("userId") Long userId, @RequestBody UserDeleteDto userDeleteDto){
