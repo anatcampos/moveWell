@@ -91,4 +91,12 @@ public class Video {
     public void setUserCreator(User userCreator) {
         this.userCreator = userCreator;
     }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }

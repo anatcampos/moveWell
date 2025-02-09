@@ -1,5 +1,7 @@
 package mindera.porto.moveWell.dto;
 
+import mindera.porto.moveWell.entity.Category;
+
 public class VideoReadDto {
 
     private Long id;
@@ -11,6 +13,8 @@ public class VideoReadDto {
     private Double averageRating;
 
     private Integer numberOfRatings;
+
+   private Long categoryId;
 
     public Long getId() {
         return id;
@@ -50,5 +54,13 @@ public class VideoReadDto {
 
     public void setNumberOfRatings(Integer numberOfRatings) {
         this.numberOfRatings = numberOfRatings;
+    }
+
+    public Long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
     }
 }

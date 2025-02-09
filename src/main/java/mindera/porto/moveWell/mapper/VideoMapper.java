@@ -13,6 +13,7 @@ public class VideoMapper {
         videoReadDto.setNumberOfRatings(video.getNumberOfRatings());
         videoReadDto.setAverageRating(video.getAverageRating());
         videoReadDto.setNumberOfViews(video.getNumberOfViews());
+        videoReadDto.setCategoryId(video.getCategory().getId());
         return videoReadDto;
     }
     public static Video fromVideoCreateDtoToVideo (VideoCreateDto videoCreateDto) {
@@ -20,6 +21,4 @@ public class VideoMapper {
         video.setUrl(videoCreateDto.getUrl());
         return video;
     }
-
-
 }

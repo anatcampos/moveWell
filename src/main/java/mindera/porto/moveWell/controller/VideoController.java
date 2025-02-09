@@ -1,5 +1,6 @@
 package mindera.porto.moveWell.controller;
 
+import jakarta.validation.Valid;
 import mindera.porto.moveWell.dto.VideoCreateDto;
 import mindera.porto.moveWell.dto.VideoDeleteDto;
 import mindera.porto.moveWell.dto.VideoReadDto;
@@ -56,16 +57,14 @@ public class VideoController {
     }
 
     @PostMapping
-    public VideoReadDto addNewVideo(@RequestBody VideoCreateDto videoCreateDto){
+    public VideoReadDto addNewVideo(@Valid @RequestBody VideoCreateDto videoCreateDto){
         return videoService.addNewVideo(videoCreateDto);
     }
 
     @DeleteMapping(path = "{videoId}")
     public ResponseEntity<String> deleteOwnVideo (@PathVariable("videoId") Long videoId,@RequestBody VideoDeleteDto videoDeleteDto){
-        //videoService.deleteOwnVideo(videoId, videoDeleteDto);
+        videoService.deleteOwnVideo(videoId, videoDeleteDto);
         return ResponseEntity.ok("Video was successfully deleted.");
     }
-
-
 
 }
