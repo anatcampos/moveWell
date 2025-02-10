@@ -4,7 +4,7 @@ import jakarta.validation.constraints.Pattern;
 
 public class CategoryCreateDto {
 
-    @Pattern(regexp = "(?i)joelho|ombro|tornozelo|lombar|coxa", message = "Invalid area.")
+    //@Pattern(regexp = "(?i)joelho|ombro|tornozelo|lombar|coxa", message = "Invalid area.")
     private String area;
 
     private String username;

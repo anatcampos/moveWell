@@ -117,7 +117,7 @@ public class VideoService {
                     throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Video does not exist.");
                 }
             } else {
-                    throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Only physiotherapists can delete videos.");
+                throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Only physiotherapists can delete videos.");
             }
         } else {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid credentials. Please check your username and password.");

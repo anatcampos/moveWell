@@ -7,10 +7,11 @@ public class VideoCreateDto {
 
     @NotBlank(message = "Required field.")
     private String url;
+
     private String username;
     private String password;
 
-    @NotBlank(message = "Required field.")
+    //@NotBlank(message = "Required field.")
     private Long categoryId;
 
     public String getUrl() {
