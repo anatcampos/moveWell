@@ -1,8 +1,10 @@
 package mindera.porto.moveWell.controller;
 
+import jakarta.validation.Valid;
 import mindera.porto.moveWell.dto.UserCreateDto;
 import mindera.porto.moveWell.dto.UserDeleteDto;
 import mindera.porto.moveWell.dto.UserReadDto;
+import mindera.porto.moveWell.dto.UserUpdateDto;
 import mindera.porto.moveWell.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,8 +35,8 @@ public class UserController {
     }
 
     @PostMapping
-    public UserReadDto addNewUser(@RequestBody UserCreateDto user){
-        return userService.addNewUser(user);
+    public UserReadDto addNewUser(@Valid @RequestBody UserCreateDto userCreateDto){
+        return userService.addNewUser(userCreateDto);
     }
 
     @GetMapping("{userId}/video-views")
@@ -42,15 +44,21 @@ public class UserController {
         return null; ///TODO
     }
 
-    @GetMapping("{userId}/video-views-other-way")
-    public  List<VideosWithViewDto> getVideoViewsOtherWay(@PathVariable("userId") Long userId){
-        return null; //TODO
-    }
+//    @GetMapping("{userId}/video-views-other-way")
+//    public  List<VideosWithViewsDto> getVideoViewsOtherWay(@PathVariable("userId") Long userId){
+//        return null; //TODO
+//    }
 
     @DeleteMapping(path = "{userId}")
     public void deleteOwnUser(@PathVariable("userId") Long userId, @RequestBody UserDeleteDto userDeleteDto){
 
         userService.deleteOwnUser(userId, userDeleteDto);
+    }
+
+    @PutMapping(path = "{userId}")
+    public void updateOwnUser(@PathVariable("userId") Long userId, @Valid @RequestBody UserUpdateDto userUpdateDto) {
+
+        userService.updateOwnUser(userId, userUpdateDto);
     }
 
     //User ver a sua subscrição

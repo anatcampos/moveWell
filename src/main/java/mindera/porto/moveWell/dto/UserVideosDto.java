@@ -1,10 +1,14 @@
 package mindera.porto.moveWell.dto;
 
-public class UserDeleteDto {
+import mindera.porto.moveWell.entity.Video;
+
+import java.util.List;
+
+public class UserVideosDto {
 
     private Long id;
     private String username;
-    private String password;
+    private List<Video> videos;
 
     public Long getId() {
         return id;
@@ -22,11 +26,11 @@ public class UserDeleteDto {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
+    public List<Video> getVideos() {
+        return videos;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setVideos(List<Video> videos) {
+        this.videos = videos;
     }
 }

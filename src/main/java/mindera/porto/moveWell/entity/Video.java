@@ -77,10 +77,26 @@ public class Video {
     }
 
     public String getUrl() {
-        return url;
+        return this.url;
     }
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public User getUserCreator() {
+        return userCreator;
+    }
+
+    public void setUserCreator(User userCreator) {
+        this.userCreator = userCreator;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

@@ -22,7 +22,9 @@ public class UserMapper {
         User user = new User();
         user.setName(userCreateDto.getName());
         user.setUsername(userCreateDto.getUsername());
+        user.setPassword(userCreateDto.getPassword());
         user.setAge(userCreateDto.getAge());
+        user.setRole(userCreateDto.getRole());
         return user;
     }
 
@@ -34,6 +36,8 @@ public class UserMapper {
         user.setPassword(userDeleteDto.getPassword());
         return user;
     }
+
+
 
 
 }
