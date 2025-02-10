@@ -29,6 +29,12 @@
 	<properties>
 		<java.version>21</java.version>
 	</properties>
+	<repositories>
+		<repository>
+			<id>bintray</id>
+			<url>https://jcenter.bintray.com/</url>
+		</repository>
+	</repositories>
 	<dependencies>
 <!--		<dependency>-->
 <!--			<groupId>org.mapstruct</groupId>-->
@@ -85,6 +91,40 @@
 			<version>RELEASE</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- Dependência para a Servlet API -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version> <!-- Versão compatível com seu projeto -->
+			<scope>provided</scope> <!-- Não precisa ser incluída no WAR final -->
+		</dependency>
+		<!-- Dependência para JWT (jjwt) -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>0.11.5</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>0.11.5</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-jackson</artifactId>
+			<version>0.11.5</version>
+		</dependency>
+		<!-- Dependência para Spring Security -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>2.2.224</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
